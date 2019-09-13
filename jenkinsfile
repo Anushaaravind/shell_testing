@@ -1,0 +1,41 @@
+
+pipeline{
+          agent any
+		  stages{
+		          stage('clone'){
+				  steps{
+				         echo 'cloning'
+				         git 'https://github.com/Anushaaravind/shell_testing.git'
+				         
+						}
+					}
+                  stage('counttext'){
+                   steps{
+                          echo 'counting text files'
+                          sh label: '', script: 'sh count.sh'
+                          
+                        }
+                    }
+                  stage('search'){
+                    steps{
+                            echo 'searching a string in a file'
+                            sh label: '', script: 'sh search.sh'
+                            
+                         }
+                    }
+                    stage('counting lines in result file'){
+                        steps{
+                               echo 'printing the line count in each file'
+                               sh label: '', script: 'sh printcount.sh'
+                              }
+                    }
+                               
+                        
+                    stage('email'){
+                        steps{
+                               echo 'email notification'
+                               emailext body: 'hi', subject: 'email notification', to: 'anudeepkota5@gmail.com'
+                        }
+                    }
+                }
+         }				
