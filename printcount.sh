@@ -1,6 +1,6 @@
-for i in output.txt
+for i in results.txt
 do
-#grep -o ".txt" output.txt
+#grep -o ".txt" results.txt
 no=$(wc -l "$i")
 echo $no
 done
