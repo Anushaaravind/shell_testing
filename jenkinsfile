@@ -13,6 +13,7 @@ pipeline{
                    steps{
                           echo 'counting text files'
                           sh label: '', script: 'sh count.sh'
+						  sleep 10
                           
                         }
                     }
