@@ -2,4 +2,5 @@
 
 #grep "devops" ~/*.txt
 val=$(grep  -n  "development" /var/lib/jenkins/workspace/test_pipeline_practice/*.txt)
-echo $val | cat results.txt
+#echo $val | cat results.txt
+echo $val | awk -F: '{print $1}' | cat results.txt
